@@ -4,10 +4,10 @@
  for fahr = 0, 20, ..., 300 */
 int main()
 {
-  int fahr, celsius;
+  float fahr, celsius;
   int lower, upper, step;
 
-  lower = -41;    /* lower limit of temperature table */
+  lower = -40;    /* lower limit of temperature table */
   upper = 300;  /* upper limit */
   step = 20;    /* step size */
 
@@ -15,8 +15,8 @@ int main()
   printf("Fahrenheit -> Celsius\n\n");
   printf("Fahrenheit\tCelsius\n");
   while (fahr <= upper) {
-    celsius = 5 * (fahr-32) / 9;
-    printf("%d\t\t%d\n", fahr, celsius);
+    celsius = (5.0/9.0) * (fahr-32);
+    printf("%3.0f\t\t%6.1f\n", fahr, celsius);
     fahr = fahr + step;
   }
 
@@ -25,8 +25,8 @@ int main()
   printf("Celsius -> Fahrenheit\n\n");
   printf("Celsius\tFahrenheit\n");
   while (celsius <= upper) {
-    fahr = celsius * 9/5 + 32;
-    printf("%d\t%d\n", celsius, fahr);
+    fahr = celsius * (9.0/5.0) + 32;
+    printf("%3.0f\t%6.1f\n", celsius, fahr);
     celsius = celsius + step;
   }
 }
