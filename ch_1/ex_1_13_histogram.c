@@ -10,6 +10,9 @@ int main(){
 
   state = OUT;
   nc = max_count = 0;
+  for (i = 0; i < MAXWORDLENGTH; ++i)
+    nlength[i] = 0;
+  
   while((c = getchar()) != EOF) {
     if (c == ' ' || c == '\n' || c == '\t') {
       state = OUT;
@@ -29,10 +32,10 @@ int main(){
       ++nc;
     }
   }
-  printf("Max count: %d", max_count);
+  printf("Max count: %d\n", max_count);
   
-  for (i = max_count; i >= 1; --i) {
-    for (j = 0; j < MAXWORDLENGTH-1; ++j)
+  for (i = max_count; i > 0; --i) {
+    for (j = 0; j < MAXWORDLENGTH; ++j)
       if (nlength[j] >= i)
 	printf("-\t");
       else
