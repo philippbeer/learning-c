@@ -17,13 +17,13 @@ int main(){
     if (c == ' ' || c == '\n' || c == '\t') {
       state = OUT;
       if (nc > 0) {
-	// remember largest value
-	if (nc > max_count)
-	  max_count = nc;
-	
 	if (nc > MAXWORDLENGTH)
 	  nc = MAXWORDLENGTH;
 	nlength[nc-1] = ++nlength[nc-1];
+	
+	// keep track of largest count
+	if (nlength[nc-1] > max_count)
+	  max_count = nlength[nc-1];
 	nc = 0; // reseting word character count
       }
     }
@@ -33,6 +33,8 @@ int main(){
     }
   }
   printf("Max count: %d\n", max_count);
+  for (i = 0; i < MAXWORDLENGTH; ++i)
+    printf("%d = %d\n", i+1, nlength[i]);
   
   for (i = max_count; i > 0; --i) {
     for (j = 0; j < MAXWORDLENGTH; ++j)
