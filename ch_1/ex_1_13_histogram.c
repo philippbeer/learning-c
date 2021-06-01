@@ -39,11 +39,11 @@ int main(){
   for (i = max_count; i > 0; --i) {
     for (j = 0; j < MAXWORDLENGTH; ++j)
       if (nlength[j] >= i)
-	printf("-\t");
+	printf("- ");
       else
-	printf(" \t");
+	printf("  ");
     printf("\n");
   }
   for (i = 1; i <= MAXWORDLENGTH; ++i)
-    printf("%d\t", i);
+    printf("%d ", i);
 }
