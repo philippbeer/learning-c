@@ -1,21 +1,20 @@
 #include <stdio.h>
 #define MAXLINE 1000 /* maximum input line length */
-#define LONGLINE 80  /* threshold for long lines */
 
 int get_line(char line[], int maxline);
-int reverse_line(char line[]);
-void copy(char to[], char from[]);
+void reverse_line(char rev[], char from[]);
 
  /* print the longest input line */
 int  main()
  {
    int len; /* current line length */
    char line[MAXLINE]; /* current input line */
+   char reverse[MAXLINE]; /* reverse line */
    
-   while ((len = get_line(line, MAXLINE)) > 0)
-     if (len > LONGLINE)
-       printf("%s", line);
-
+   while ((len = get_line(line, MAXLINE)) > 0) {
+     reverse_line(reverse, line);
+     printf("%s\n", reverse);
+   }
    return 0;
  }
 
@@ -33,3 +32,24 @@ int  main()
    s[i] = '\0';
    return i;
  }
+
+/* reverse order of characters in array */
+void reverse_line(char reverse[], char from[])
+{
+  int i, j;
+  i = j = 0;
+  /* find index value for end of string */
+  while (from[i] != '\0') {
+    ++i;
+  }
+ 
+  for (i; i  >= 0; i--) {
+    if (from[i] == '\n' || from[i] == '\0') {
+     }
+    else {
+      reverse[j] = from[i];
+      ++j;
+    }
+  }
+  reverse[j] = '\0';
+}
